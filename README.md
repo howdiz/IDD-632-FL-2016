@@ -21,3 +21,5 @@ ALTER TABLE `contacts`
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ```  
+
+2. Basic beer data management app
