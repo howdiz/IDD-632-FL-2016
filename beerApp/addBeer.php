@@ -15,13 +15,14 @@ if ($conn->connect_error) {
 //print_r($conn);
 
 $name = $_POST['name'];
+$brewery_id = $_POST['brewery_id'];
 $style = $_POST['style'];
 $abv = $_POST['abv'];
 $rating = $_POST['rating'];
 $notes = $_POST['notes'];
 
-$sql = "INSERT INTO Beers (name, style, abv, rating, notes)
-VALUES ('$name', '$style', '$abv', '$rating', '$notes')";
+$sql = "INSERT INTO Beers (name, brewery_id, style, abv, rating, notes)
+VALUES ('$name', '$brewery_id', '$style', '$abv', '$rating', '$notes')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully <br>";
