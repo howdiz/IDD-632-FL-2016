@@ -21,7 +21,7 @@ $result = $conn->query($sql);
 <h1>Add Beer</h1>
 <form action="addBeer.php" method="post">
     <div>
-        <label for="brewery_id">brewery:</label>
+        <label for="brewery_id">Brewery:</label>
         <select name="brewery_id">
           <?php
           if ($result->num_rows > 0) {
@@ -39,25 +39,25 @@ $result = $conn->query($sql);
         <input type="text" name="name" />
     </div>
     <div>
-        <label for="style">style:</label>
+        <label for="style">Style:</label>
         <input type="text" name="style" />
     </div>
     <div>
-        <label for="abv">abv:</label>
+        <label for="abv">ABV:</label>
         <input type="text" name="abv" />
     </div>
     </div>
     <div>
-        <label for="rating">rating:</label>
+        <label for="rating">Rating:</label>
         <input type="text" name="rating" />
     </div>
     <div>
-        <label for="notes">notes:</label>
+        <label for="notes">Notes:</label>
       <textarea name="notes"></textarea>
     </div>
 
 
     <div class="button">
-        <button type="submit">submit</button>
+        <button type="submit">Submit</button>
     </div>
 </form>
