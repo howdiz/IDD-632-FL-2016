@@ -1,16 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "BeerApp";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'dbConnection.php';
 
 $sql = "SELECT
   Beers.name as beerName, style, abv, rating, notes,
@@ -24,6 +14,8 @@ $result = $conn->query($sql);
 
 <h2><a href="breweryForm.php">Add a Brewery</a></h2>
 <h2><a href="beerForm.php">Add a Beer</a></h2>
+
+
 
 <?php
 if ($result->num_rows > 0) {
