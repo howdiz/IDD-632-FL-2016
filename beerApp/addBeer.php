@@ -1,18 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "BeerApp";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-//print_r($conn);
+include 'dbConnection.php';
 
 $name = $_POST['name'];
 $brewery_id = $_POST['brewery_id'];
@@ -21,8 +9,17 @@ $abv = $_POST['abv'];
 $rating = $_POST['rating'];
 $notes = $_POST['notes'];
 
-$sql = "INSERT INTO Beers (name, brewery_id, style, abv, rating, notes)
-VALUES ('$name', '$brewery_id', '$style', '$abv', '$rating', '$notes')";
+//Check if a beer_id was provided if so, we're updating a beer, otherwise we're inserting
+if (strlen($_POST['beer_id']))
+{
+  $beer_id = $_POST['beer_id'];
+  $sql =  "UPDATE Beers SET name='$name', style='$style', abv = '$abv', rating='$rating', notes = '$notes'
+  WHERE id = $beer_id";
+
+} else {
+  $sql = "INSERT INTO Beers (name, brewery_id, style, abv, rating, notes)
+  VALUES ('$name', '$brewery_id', '$style', '$abv', '$rating', '$notes')";
+}
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully <br>";
@@ -36,6 +33,6 @@ $conn->close();
 
 Beer: <?php echo $name ?><br>
 Style: <?php echo $style ?><br>
-State: <?php echo $abv ?><br>
-Country: <?php echo $rating ?><br>
-Country: <?php echo $notes ?><br>
+abv: <?php echo $abv ?><br>
+rating: <?php echo $rating ?><br>
+notes: <?php echo $notes ?><br>
