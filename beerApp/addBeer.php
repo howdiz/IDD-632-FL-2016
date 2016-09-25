@@ -10,7 +10,7 @@ $rating = $_POST['rating'];
 $notes = $_POST['notes'];
 
 //Check if a beer_id was provided if so, we're updating a beer, otherwise we're inserting
-if (strlen($_POST['beer_id']))
+if (isset($_POST['beer_id']))
 {
   $beer_id = $_POST['beer_id'];
   $sql =  "UPDATE Beers SET name='$name', style='$style', abv = '$abv', rating='$rating', notes = '$notes'
