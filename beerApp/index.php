@@ -23,7 +23,9 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         echo $row['beerName'] . " | " . $row['style'] . " | " . $row['abv'] .
         " | " . $row['BreweryName'] . " | " . $row['city'] . " | " . $row['state'] .
-         " | " . $row['country'] . " | <a href=deleteBeer.php?beer_id=" . $row['beer_id']  ."> delete</a><br>";
+         " | " . $row['country'] .
+         " | <a href=deleteBeer.php?beer_id=" . $row['beer_id']  ."> delete</a>" .
+         " | <a href=beerForm.php?beer_id=" . $row['beer_id']  ."> update</a>" . "<br>";
     }
 }
 ?>
