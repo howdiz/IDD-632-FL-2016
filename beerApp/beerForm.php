@@ -23,6 +23,7 @@ if (strlen($_GET['beer_id'])) {
 
 <h1>Add / Update Beer</h1>
 <form action="addBeer.php" method="post">
+  <?php if(strlen($beer_id)) echo "<input type='hidden' name='beer_id' value=" . $beer_id ." >"; ?>
     <div>
         <label for="brewery_id">Brewery:</label>
         <select name="brewery_id">
