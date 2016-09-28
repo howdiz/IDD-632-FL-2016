@@ -40,9 +40,10 @@ if (isset($_GET['beer_id'])) {
   </head>
 
   <body>
+    <?php include 'nav.php' ?>
     <div class="container">
-      <h2 align="center" class="form-signin-heading">Add / Update Beer</h1>
       <form action="addBeer.php" method="post" class="form-signin">
+        <h2 class="form-signin-heading">Add / Update Beer</h2>
         <?php if(isset($beer_id)) echo "<input type='hidden' name='beer_id' value=" . $beer_id ." >"; ?>
           <div>
               <label for="brewery_id">Brewery:</label>
